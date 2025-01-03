@@ -5,6 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable, :lockable,
          :two_factor_authenticatable, otp_secret_encryption_key: ENV['OTP_SECRET_KEY']
+  enum role: { admin: 0, user: 1 }
+
+  def admin?
+    role == 'admin'
+  end
 
   def generate_otp_secret
     self.otp_secret ||= ROTP::Base32.random_base32
