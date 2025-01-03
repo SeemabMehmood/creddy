@@ -1,0 +1,82 @@
+Started GET "/" for ::1 at 2025-01-01 12:06:09 -0500
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Creddy'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | GC: 0.4ms)
+Completed 200 OK in 68ms (Views: 7.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+  [1m[35mSQL (0.5ms)[0m  [1m[35mSET search_path TO public /*application='Creddy'*/[0m
+  [1m[35m (298.1ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode' /*application='Creddy'*/[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Creddy'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Creddy'*/[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315) /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-01-02 13:06:06.125025', '2025-01-02 13:06:06.125031') RETURNING "key" /*application='Creddy'*/[0m
+Migrating to DeviseCreateUsers (20250102130241)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315) /*application='Creddy'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7864839756650184315) /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Creddy'*/[0m
+Migrating to DeviseCreateUsers (20250102130241)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Creddy'*/[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying DEFAULT '' NOT NULL, "last_name" character varying DEFAULT '' NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" character varying, "locked_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Creddy'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Creddy'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='Creddy'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token") /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250102130241') RETURNING "version" /*application='Creddy'*/[0m
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[35mCOMMIT /*application='Creddy'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7864839756650184315) /*application='Creddy'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+Started GET "/" for ::1 at 2025-01-02 08:07:18 -0500
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x000000010847b680 @set=#<Rails::Engine::LazyRouteSet:0x0000000107eb8220>, @draw_paths=[#<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionview-8.0.1/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/activestorage-8.0.1/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actioncable-8.0.1/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionmailbox-8.0.1/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actiontext-8.0.1/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/importmap-rails-2.1.0/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.11/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/stimulus-rails-1.3.4/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/solid_cache-1.0.6/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/solid_queue-1.1.2/config/routes>, #<Pathname:/Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/solid_cable-3.0.5/config/routes>, #<Pathname:/Volumes/Alpha/rails-workspace/creddy/config/routes>, #<Pathname:/Volumes/Alpha/rails-workspace/creddy/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x00000001084994a0 @parent=#<ActionDispatch::Routing::Mapper::Scope:0x0000000107e32da0 @parent=nil, @hash={}, @scope_level=nil>, @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @scope_level=nil>, @concerns={}>):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/favicon.ico" for ::1 at 2025-01-02 08:07:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/sign_in" for ::1 at 2025-01-02 08:07:27 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/sign_in"):
+  
+Started GET "/users/sign_in" for ::1 at 2025-01-02 08:07:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_in"):
+  
+Started GET "/users/sign_in" for ::1 at 2025-01-02 08:49:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (27.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Creddy'*/[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.4ms | GC: 0.2ms)
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 16.4ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | GC: 1.2ms)
+Completed 200 OK in 215ms (Views: 41.7ms | ActiveRecord: 16.5ms (0 queries, 0 cached) | GC: 44.3ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for ::1 at 2025-01-02 08:49:22 -0500
+Started GET "/assets/application-bfcdf840.js" for ::1 at 2025-01-02 08:49:22 -0500
+Started GET "/assets/turbo.min-fae85750.js" for ::1 at 2025-01-02 08:49:22 -0500
+Started GET "/assets/controllers/hello_controller-708796bd.js" for ::1 at 2025-01-02 08:49:22 -0500
+Started GET "/assets/controllers/index-ee64e1f1.js" for ::1 at 2025-01-02 08:49:22 -0500
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2025-01-02 08:49:23 -0500
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2025-01-02 08:49:23 -0500
+Started GET "/assets/controllers/application-3affb389.js" for ::1 at 2025-01-02 08:49:23 -0500
+Started GET "/users/sign_up" for ::1 at 2025-01-02 08:49:24 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /Users/jennelle/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 7.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
