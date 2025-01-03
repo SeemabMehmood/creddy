@@ -1,0 +1,7 @@
+<h1>Verify MFA Code</h1>
+
+<%= form_with url: verify_mfa_path, method: :post do |form| %>
+  <%= form.label :otp_code, "Enter your MFA code:" %>
+  <%= form.text_field :otp_code, required: true %>
+  <%= form.submit "Verify" %>
+<% end %>

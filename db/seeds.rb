@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+user = User.find_or_initialize_by(email: 'admin@creddy.com')
+user.assign_attributes(
+  password: 'password123',
+  password_confirmation: 'password123'
+)
+user.save! if user.new_record?

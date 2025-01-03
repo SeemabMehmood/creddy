@@ -1,0 +1,13 @@
+<h1>Enable Multi-Factor Authentication</h1>
+
+<p>Scan the QR code below with your authenticator app:</p>
+
+<%= image_tag RQRCode::QRCode.new("otpauth://totp/Creddy:#{current_user.email}?secret=#{@otp_secret}&issuer=Creddy").as_png.resize(200, 200).to_data_url, alt: "QR Code" %>
+
+<p>Or manually enter the secret: <%= @otp_secret %></p>
+
+<%= form_with url: enable_mfa_path, method: :post do |form| %>
+  <%= form.label :otp_code, "Enter the code from your app:" %>
+  <%= form.text_field :otp_code, required: true %>
+  <%= form.submit "Enable MFA" %>
+<% end %>
